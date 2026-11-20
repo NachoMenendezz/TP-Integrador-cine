@@ -14,4 +14,4 @@
     // VALIDAR QUE EL PRECIO NO SEA NEGATIVO.
 
     estado = true;
-}// MOSTRARvoid TipoSala::Mostrar() {    if (estado) {        cout << "ID TIPO SALA : " << tipoSala << endl;        cout << "DESCRIPCION  : " << descSala << endl;        cout << "PRECIO BASE  : $" << precio << endl;    }}
+}// MOSTRARvoid TipoSala::Mostrar() {    cout << "ID TIPO SALA : " << tipoSala << endl;    cout << "DESCRIPCION  : " << descSala << endl;    cout << "PRECIO BASE  : $" << precio << endl;}

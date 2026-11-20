@@ -89,28 +89,17 @@ void Pelicula::Cargar() {
     cin.getline(apellidoNombreDirector, 50);
     // VALIDAR QUE EL NOMBRE DEL DIRECTOR NO ESTE VACIO.
 
-    // SELECCIONAR UN GENERO EXISTENTE Y ACTIVO
-    // DEL ARCHIVO TIPOGENERO.DAT.
-    cout << "INGRESE EL ID DEL GENERO: ";
-    cin >> tipoGenero;
+    // EL GENERO SE SELECCIONA DESDE EL MENU
+    // Y SE ASIGNA MEDIANTE setTipoGenero().
 
     // VALIDAR QUE LA CLASIFICACION SEA 1, 2 O 3.
     cout << "INGRESE LA CLASIFICACION (1: ATP, 2: +14, 3: +18): ";
     cin >> clasificacionPelicula;
 
-    int dia, mes, anio;
+    // CARGAR FECHA DE ESTRENO.
+    fechaEstreno.Cargar();
 
     // VALIDAR QUE LA FECHA INGRESADA SEA CORRECTA.
-    cout << "INGRESE EL DIA DE ESTRENO: ";
-    cin >> dia;
-    cout << "INGRESE EL MES DE ESTRENO: ";
-    cin >> mes;
-    cout << "INGRESE EL ANIO DE ESTRENO: ";
-    cin >> anio;
-
-    fechaEstreno.setDia(dia);
-    fechaEstreno.setMes(mes);
-    fechaEstreno.setAnio(anio);
 
     estado = true;
 }

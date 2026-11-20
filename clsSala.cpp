@@ -55,10 +55,8 @@ void Sala::Cargar() {
     cin.ignore();
     cin.getline(nombreSala, 30);
 
-    // VALIDAR QUE EL TIPO DE SALA EXISTA Y ESTE ACTIVO
-    // EN EL ARCHIVO TIPOSALA.DAT.
-    cout << "INGRESE EL ID DEL TIPO DE SALA: ";
-    cin >> tipoSala;
+    // EL TIPO DE SALA SE SELECCIONA DESDE EL MENU
+    // Y SE ASIGNA MEDIANTE setTipoSala().
 
     // VALIDAR QUE LA CAPACIDAD SEA MAYOR A CERO.
     cout << "INGRESE LA CAPACIDAD TOTAL DE LA SALA: ";
@@ -66,7 +64,6 @@ void Sala::Cargar() {
 
     estado = true;
 }
-
 // MOSTRAR
 void Sala::Mostrar() {
     cout << "NUMERO DE SALA: " << numSala << endl;
