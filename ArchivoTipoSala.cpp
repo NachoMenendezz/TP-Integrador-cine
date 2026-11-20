@@ -1,0 +1,74 @@
+#include <iostream>
+#include <cstring>
+#include "ArchivoTipoSala.h"
+
+using namespace std;
+
+ArchivoTipoSala::ArchivoTipoSala(const char *n) {
+    strcpy(nombreArchivo, n);
+}
+
+TipoSala ArchivoTipoSala::leerRegistro(int pos) {
+    FILE *p = fopen(nombreArchivo, "rb");
+    TipoSala obj;
+    if (p == nullptr) {
+        obj.setTipoSala(-1);
+        return obj;
+    }
+    fseek(p, pos * sizeof obj, 0);
+    fread(&obj, sizeof obj, 1, p);
+    fclose(p);
+    return obj;
+}
+
+int ArchivoTipoSala::contarRegistros() {
+    FILE *p = fopen(nombreArchivo, "rb");
+    if (p == nullptr) {
+        return 0;
+    }
+    fseek(p, 0, 2);
+    int bytes = ftell(p);
+    fclose(p);
+    return bytes / sizeof(TipoSala);
+}
+
+bool ArchivoTipoSala::grabarRegistro(TipoSala obj) {
+    FILE *p = fopen(nombreArchivo, "ab");
+    if (p == nullptr) {
+        return false;
+    }
+    bool escribio = fwrite(&obj, sizeof obj, 1, p);
+    fclose(p);
+    return escribio;
+}
+
+bool ArchivoTipoSala::modificarRegistro(TipoSala obj, int pos) {
+    FILE *p = fopen(nombreArchivo, "rb+");
+    if (p == nullptr) {
+        return false;
+    }
+    fseek(p, pos * sizeof obj, 0);
+    bool modifico = fwrite(&obj, sizeof obj, 1, p);
+    fclose(p);
+    return modifico;
+}
+
+int ArchivoTipoSala::buscarRegistro(int id) {
+    int cantReg = contarRegistros();
+    for (int i = 0; i < cantReg; i++) {
+        TipoSala obj = leerRegistro(i);
+        if (obj.getTipoSala() == id) return i;
+    }
+    return -1;
+}
+
+void ArchivoTipoSala::listarRegistros() {
+    int cantReg = contarRegistros();
+    for (int i = 0; i < cantReg; i++) {
+        TipoSala obj = leerRegistro(i);
+        if (obj.getEstado()) {
+            obj.Mostrar();
+            cout << "************************" << endl;
+        }
+    }
+}
