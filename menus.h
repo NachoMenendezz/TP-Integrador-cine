@@ -1,12 +1,1 @@
-#ifndef MENUS_H_INCLUDED
-#define MENUS_H_INCLUDED
-// Menú Principalvoid menuPrincipal();// Submenús
-void menuEmpleado();
-void menuCliente();
-void menuGestionDatos();
-void menuListados();
-void menuConsultas();
-void menuInformes();void menuPeliculas();void menuSalas();void menuFunciones();
-//ABML - Películasvoid agregarPelicula();void bajaPelicula();void modificarPelicula();void listarPeliculas();
-//ABML - Salasvoid agregarSala();void bajaSala();void modificarSala();void listarSalas();//ABML - Funcionesvoid agregarFuncion();void bajaFuncion();void modificarFuncion();void listarFunciones();
-#endif // MENUS_H_INCLUDED
+#ifndef MENUS_H_INCLUDED#define MENUS_H_INCLUDED// Menús Principales y de Nivelvoid menuPrincipal();void menuEmpleado();void menuCliente();// Submenú Empleadovoid menuGestionDatos();void menuListados();void menuConsultas();void menuInformes();// Submenús ABM (Gestión de Datos)void menuPeliculas();void menuGeneros();void menuSalas();void menuTipoSalas();void menuFunciones();// Funciones ABM - Películasvoid agregarPelicula();void bajaPelicula();void modificarPelicula();void listarPeliculas();// Funciones ABM - Génerosvoid agregarTipoGenero();void bajaTipoGenero();void modificarTipoGenero();void listarTipoGeneros();// Funciones ABM - Salasvoid agregarSala();void bajaSala();void modificarSala();void listarSalas();// Funciones ABM - Tipos de Salavoid agregarTipoSala();void bajaTipoSala();void modificarTipoSala();void listarTipoSalas();// Funciones ABM - Funcionesvoid agregarFuncion();void bajaFuncion();void modificarFuncion();void listarFunciones();// Submenú y Procesos Clientevoid realizarVenta();void consultarComprasCliente();#endif // MENUS_H_INCLUDED
