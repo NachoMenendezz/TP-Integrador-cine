@@ -16,6 +16,7 @@ public:
     bool modificarRegistro(Pelicula obj, int pos);
     int buscarRegistro(int id);
     void listarRegistros();
+    int generarId();
 };
 
 #endif // ARCHIVOPELICULAS_H_INCLUDED

@@ -15,6 +15,7 @@ public:
     bool modificarRegistro(TipoSala obj, int pos);
     int buscarRegistro(int id);
     void listarRegistros();
+    int generarId();
 };
 
 #endif // ARCHIVOTIPOSALA_H_INCLUDED

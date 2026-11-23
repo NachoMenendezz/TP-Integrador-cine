@@ -72,3 +72,20 @@ void ArchivoTipoSala::listarRegistros() {
         }
     }
 }
+
+// Devuelve el mayor código de tipo de sala registrado más uno.
+// Incluye los tipos dados de baja para evitar reutilizar sus códigos.
+int ArchivoTipoSala::generarId() {
+    int maxId = 0;
+    int cantidad = contarRegistros();
+
+    for (int i = 0; i < cantidad; i++) {
+        TipoSala obj = leerRegistro(i);
+
+        if (obj.getTipoSala() > maxId) {
+            maxId = obj.getTipoSala();
+        }
+    }
+
+    return maxId + 1;
+}

@@ -16,6 +16,7 @@ class Fecha{
         int getAnio();
         void Cargar();
         void Mostrar();
+        bool esValida();
         ~Fecha();
 };
 

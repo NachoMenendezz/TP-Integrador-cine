@@ -70,3 +70,20 @@ void ArchivoVentaEntrada::listarRegistros() {
         cout << "************************" << endl;
     }
 }
+
+// Devuelve el mayor ID de venta registrado más uno.
+// Si todavía no hay ventas, el primer ID es 1.
+int ArchivoVentaEntrada::generarId() {
+    int maxId = 0;
+    int cantidad = contarRegistros();
+
+    for (int i = 0; i < cantidad; i++) {
+        VentaEntrada obj = leerRegistro(i);
+
+        if (obj.getIdVenta() > maxId) {
+            maxId = obj.getIdVenta();
+        }
+    }
+
+    return maxId + 1;
+}

@@ -77,25 +77,34 @@ bool Pelicula::getEstado() {
 // CARGAR
 
 void Pelicula::Cargar() {
-    // EL ID SE SOLICITA Y VERIFICA EN EL MENU DE ALTA
-    // ANTES DE CARGAR EL RESTO DE LOS DATOS.
+    // EL ID SE GENERA AUTOMATICAMENTE EN EL ALTA
+    // Y SE ASIGNA ANTES DE CARGAR EL RESTO DE LOS DATOS.
 
     cout << "INGRESE EL NOMBRE DE LA PELICULA: ";
     cin.ignore();
     cin.getline(nombrePelicula, 50);
     // VALIDAR QUE EL NOMBRE NO ESTE VACIO.
-
+    while (nombrePelicula[0] == '\0') {
+    cout << "EL NOMBRE NO PUEDE ESTAR VACIO. INGRESELO NUEVAMENTE: ";
+    cin.getline(nombrePelicula, 50);
+    }
     cout << "INGRESE EL NOMBRE Y APELLIDO DEL DIRECTOR: ";
     cin.getline(apellidoNombreDirector, 50);
     // VALIDAR QUE EL NOMBRE DEL DIRECTOR NO ESTE VACIO.
-
+    while (apellidoNombreDirector[0] == '\0') {
+    cout << "EL NOMBRE NO PUEDE ESTAR VACIO. INGRESELO NUEVAMENTE: ";
+    cin.getline(nombrePelicula, 50);
+    }
     // EL GENERO SE SELECCIONA DESDE EL MENU
     // Y SE ASIGNA MEDIANTE setTipoGenero().
 
     // VALIDAR QUE LA CLASIFICACION SEA 1, 2 O 3.
     cout << "INGRESE LA CLASIFICACION (1: ATP, 2: +14, 3: +18): ";
     cin >> clasificacionPelicula;
-
+    while (clasificacionPelicula<1||clasificacionPelicula>3){
+        cout<<"CLASIFICACION NO VALIDA. INGRESE OTRA NUEVAMENTE:";
+        cin>>clasificacionPelicula;
+    }
     // CARGAR FECHA DE ESTRENO.
     fechaEstreno.Cargar();
 
@@ -111,8 +120,19 @@ void Pelicula::Mostrar() {
     cout << "NOMBRE: " << nombrePelicula << endl;
     cout << "DIRECTOR: " << apellidoNombreDirector << endl;
     cout << "ID GENERO: " << tipoGenero << endl;
-    cout << "CLASIFICACION: " << clasificacionPelicula << endl;
-
+    cout << "CLASIFICACION: ";
+    switch (clasificacionPelicula){
+    case 1:cout<<"ATP";
+    break;
+    case 2:cout<<"+14";
+    break;
+    case 3:cout<<"+18";
+    break;
+    default:
+    cout << "NO VALIDA";
+    break;
+    }
+    cout <<endl;
     cout << "FECHA DE ESTRENO: "
          << fechaEstreno.getDia() << "/"
          << fechaEstreno.getMes() << "/"

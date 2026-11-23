@@ -15,6 +15,7 @@ public:
     bool modificarRegistro(VentaEntrada obj, int pos);
     int buscarRegistro(int id);
     void listarRegistros();
+    int generarId();
 };
 
 #endif // ARCHIVOVENTAENTRADA_H_INCLUDED

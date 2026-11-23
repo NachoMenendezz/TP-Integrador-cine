@@ -72,3 +72,20 @@ void ArchivoPeliculas::listarRegistros() {
         }
     }
 }
+
+// Devuelve el mayor ID registrado más uno.
+// Incluye las películas dadas de baja para evitar reutilizar sus IDs.
+int ArchivoPeliculas::generarId() {
+    int maxId = 0;
+    int cantidad = contarRegistros();
+
+    for (int i = 0; i < cantidad; i++) {
+        Pelicula obj = leerRegistro(i);
+
+        if (obj.getIdPelicula() > maxId) {
+            maxId = obj.getIdPelicula();
+        }
+    }
+
+    return maxId + 1;
+}

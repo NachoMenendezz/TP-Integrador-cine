@@ -40,6 +40,26 @@ void Fecha::Mostrar(){
     cout<<dia<<"/"<<mes<<"/"<<anio;
 }
 
+bool Fecha::esValida(){
+int maxDias = 31;
+if (dia<1||dia>31)return false;
+if (mes<1||mes>12)return false;
+if (anio<1) return false;
+if (mes==4||mes==6||mes==9||mes==11){
+    maxDias=30;
+}
+if (mes == 2) {
+    maxDias = 28;
 
+    bool esBisiesto = (anio % 400 == 0) ||
+                      (anio % 4 == 0 && anio % 100 != 0);
+
+    if (esBisiesto) {
+        maxDias = 29;
+    }
+}
+
+return dia <= maxDias;
+}
 Fecha::~Fecha(){
 }

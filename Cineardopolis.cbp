@@ -34,6 +34,20 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="ArchivoCliente.cpp" />
+		<Unit filename="ArchivoCliente.h" />
+		<Unit filename="ArchivoFuncion.cpp" />
+		<Unit filename="ArchivoFuncion.h" />
+		<Unit filename="ArchivoPeliculas.cpp" />
+		<Unit filename="ArchivoPeliculas.h" />
+		<Unit filename="ArchivoSala.cpp" />
+		<Unit filename="ArchivoSala.h" />
+		<Unit filename="ArchivoTipoGenero.cpp" />
+		<Unit filename="ArchivoTipoGenero.h" />
+		<Unit filename="ArchivoTipoSala.cpp" />
+		<Unit filename="ArchivoTipoSala.h" />
+		<Unit filename="ArchivoVentaEntrada.cpp" />
+		<Unit filename="ArchivoVentaEntrada.h" />
 		<Unit filename="clsClientes.cpp" />
 		<Unit filename="clsClientes.h" />
 		<Unit filename="clsFecha.cpp" />
