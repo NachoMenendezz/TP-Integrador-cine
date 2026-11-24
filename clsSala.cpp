@@ -48,19 +48,25 @@ bool Sala::getEstado() {
 
 // CARGAR
 void Sala::Cargar() {
-    // EL NUMERO DE SALA SE SOLICITA Y VERIFICA
-    // EN EL MENU DE ALTA ANTES DE CARGAR LOS DEMAS DATOS.
-
+    // El alta asigna el número generado y el tipo seleccionado antes de llamar a Cargar().
     cout << "INGRESE EL NOMBRE DE LA SALA: ";
+
+    // Consume el Enter que dejó la selección del tipo de sala.
     cin.ignore();
     cin.getline(nombreSala, 30);
 
-    // EL TIPO DE SALA SE SELECCIONA DESDE EL MENU
-    // Y SE ASIGNA MEDIANTE setTipoSala().
+    while (nombreSala[0] == '\0') {
+        cout << "EL NOMBRE NO PUEDE ESTAR VACIO. INGRESELO NUEVAMENTE: ";
+        cin.getline(nombreSala, 30);
+    }
 
-    // VALIDAR QUE LA CAPACIDAD SEA MAYOR A CERO.
     cout << "INGRESE LA CAPACIDAD TOTAL DE LA SALA: ";
     cin >> capacidadTotal;
+
+    while (capacidadTotal <= 0) {
+        cout << "INGRESE UNA CAPACIDAD MAYOR A CERO: ";
+        cin >> capacidadTotal;
+    }
 
     estado = true;
 }

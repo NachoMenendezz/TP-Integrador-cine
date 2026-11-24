@@ -89,3 +89,21 @@ int ArchivoTipoSala::generarId() {
 
     return maxId + 1;
 }
+
+// Busca un tipo de sala activo con la misma descripción.
+// Al modificar, excluye el tipo de sala que se está editando.
+bool ArchivoTipoSala::existeDescripcionActiva(const char *descripcion, int idExcluir) {
+    int cantidad = contarRegistros();
+
+    for (int i = 0; i < cantidad; i++) {
+        TipoSala obj = leerRegistro(i);
+
+        if (obj.getEstado() &&
+            obj.getTipoSala() != idExcluir &&
+            strcmp(obj.getDescSala(), descripcion) == 0) {
+            return true;
+        }
+    }
+
+    return false;
+}

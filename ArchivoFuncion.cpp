@@ -15,4 +15,27 @@ int ArchivoFuncion::generarId() {
     }
 
     return maxId + 1;
+}
+
+// Busca otra función activa en la misma sala, fecha y hora.
+// Si se indica un ID, saltea ese registro durante la búsqueda.
+bool ArchivoFuncion::existeTurnoOcupado(int numSala, Fecha fecha, int hora, int idExcluir) {
+    int cantidad = contarRegistros();
+
+    for (int i = 0; i < cantidad; i++) {
+        Funcion obj = leerRegistro(i);
+
+        if (obj.getEstado() && obj.getIdFuncion() != idExcluir &&
+            obj.getNumSala() == numSala && obj.getHoraFuncion() == hora) {
+            Fecha fechaGuardada = obj.getFechaFuncion();
+
+            if (fechaGuardada.getDia() == fecha.getDia() &&
+                fechaGuardada.getMes() == fecha.getMes() &&
+                fechaGuardada.getAnio() == fecha.getAnio()) {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }

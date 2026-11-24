@@ -93,7 +93,7 @@ void Pelicula::Cargar() {
     // VALIDAR QUE EL NOMBRE DEL DIRECTOR NO ESTE VACIO.
     while (apellidoNombreDirector[0] == '\0') {
     cout << "EL NOMBRE NO PUEDE ESTAR VACIO. INGRESELO NUEVAMENTE: ";
-    cin.getline(nombrePelicula, 50);
+    cin.getline(apellidoNombreDirector, 50);
     }
     // EL GENERO SE SELECCIONA DESDE EL MENU
     // Y SE ASIGNA MEDIANTE setTipoGenero().
@@ -102,13 +102,17 @@ void Pelicula::Cargar() {
     cout << "INGRESE LA CLASIFICACION (1: ATP, 2: +14, 3: +18): ";
     cin >> clasificacionPelicula;
     while (clasificacionPelicula<1||clasificacionPelicula>3){
-        cout<<"CLASIFICACION NO VALIDA. INGRESE OTRA NUEVAMENTE:";
+        cout<<"CLASIFICACION NO VALIDA. INGRESE UN NUMERO DEL 1 AL 3: ";
         cin>>clasificacionPelicula;
     }
     // CARGAR FECHA DE ESTRENO.
     fechaEstreno.Cargar();
-
     // VALIDAR QUE LA FECHA INGRESADA SEA CORRECTA.
+    while (!fechaEstreno.esValida()) {
+    cout << "FECHA INVALIDA. INGRESELA NUEVAMENTE." << endl;
+    fechaEstreno.Cargar();
+}
+
 
     estado = true;
 }

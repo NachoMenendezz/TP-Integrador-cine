@@ -69,26 +69,22 @@ bool Funcion::getEstado() {
 // CARGAR
 
 void Funcion::Cargar() {
-    // EL ID DE LA FUNCION SE SOLICITA Y VERIFICA
-    // EN EL MENU DE ALTA ANTES DE CARGAR LOS DEMAS DATOS.
-
-    // LA PELICULA Y LA SALA SE SELECCIONAN DESDE EL MENU,
-    // VERIFICANDO QUE EXISTAN Y ESTEN ACTIVAS.
-    // SUS IDENTIFICADORES SE ASIGNAN MEDIANTE LOS SETTERS.
-
+    // El alta asigna el ID, la película y la sala antes de llamar a Cargar().
     cout << "INGRESE LA FECHA DE LA FUNCION:" << endl;
     fechaFuncion.Cargar();
 
-    // VALIDAR QUE LA FECHA INGRESADA SEA CORRECTA
-    // Y QUE NO SEA UNA FECHA ANTERIOR A LA ACTUAL.
+    while (!fechaFuncion.esValida()) {
+        cout << "FECHA INVALIDA. INGRESELA NUEVAMENTE." << endl;
+        fechaFuncion.Cargar();
+    }
 
     cout << "INGRESE EL HORARIO DE LA FUNCION (12, 14, 16, 18, 20 O 22): ";
     cin >> horaFuncion;
 
-    // VALIDAR QUE EL HORARIO SEA UNO DE LOS PERMITIDOS.
-
-    // VALIDAR QUE NO EXISTA OTRA FUNCION ACTIVA
-    // EN LA MISMA SALA, FECHA Y HORARIO.
+    while (horaFuncion < 12 || horaFuncion > 22 || horaFuncion % 2 != 0) {
+        cout << "HORARIO INVALIDO. INGRESE 12, 14, 16, 18, 20 O 22: ";
+        cin >> horaFuncion;
+    }
 
     estado = true;
 }

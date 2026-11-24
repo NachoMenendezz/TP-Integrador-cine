@@ -5,5 +5,6 @@ int seleccionarGenero();
 int seleccionarPelicula();
 int seleccionarSala();
 int seleccionarTipoSala();
+int seleccionarFuncion();
 
 #endif // FUNCIONESGLOBALES_H_INCLUDED

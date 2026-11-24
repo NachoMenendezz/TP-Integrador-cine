@@ -41,15 +41,15 @@ bool TipoGenero::getEstado() {
 // CARGAR
 
 void TipoGenero::Cargar() {
-    // EL ID SE SOLICITA Y VERIFICA EN EL MENU DE ALTA
-    // ANTES DE CARGAR EL RESTO DE LOS DATOS.
-
+    // El ID se genera y se asigna en el alta antes de llamar a Cargar().
     cout << "INGRESE EL NOMBRE DEL GENERO: ";
     cin.ignore();
     cin.getline(nombreGenero, 50);
 
-    // VALIDAR QUE EL NOMBRE NO ESTE VACIO.
-    // VALIDAR QUE NO EXISTA OTRO GENERO ACTIVO CON EL MISMO NOMBRE.
+    while (nombreGenero[0] == '\0') {
+        cout << "EL NOMBRE NO PUEDE ESTAR VACIO. INGRESELO NUEVAMENTE: ";
+        cin.getline(nombreGenero, 50);
+    }
 
     estado = true;
 }

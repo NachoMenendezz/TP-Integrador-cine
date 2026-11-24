@@ -16,6 +16,7 @@ public:
     int buscarRegistro(int id);
     void listarRegistros();
     int generarId();
+    bool existeDescripcionActiva(const char *descripcion, int idExcluir = -1);
 };
 
 #endif // ARCHIVOTIPOSALA_H_INCLUDED

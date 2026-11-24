@@ -114,7 +114,7 @@ int seleccionarPelicula()
     int pos = arc.buscarRegistro(opc);
     if (pos < 0)
     {
-        cout << "NO EXISTE PELICULA CON ESE ID" << endl;
+        cout << "NO EXISTE PELICULA CON ESE ID EN EL ARCHIVO" << endl;
         return -1;
     }
     Pelicula obj=arc.leerRegistro(pos);
