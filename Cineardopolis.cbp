@@ -64,6 +64,8 @@
 		<Unit filename="clsTipoSala.h" />
 		<Unit filename="clsVentaEntrada.cpp" />
 		<Unit filename="clsVentaEntrada.h" />
+		<Unit filename="consultas.cpp" />
+		<Unit filename="consultas.h" />
 		<Unit filename="funcionesGlobales.cpp" />
 		<Unit filename="funcionesGlobales.h" />
 		<Unit filename="main.cpp" />

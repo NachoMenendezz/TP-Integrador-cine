@@ -202,7 +202,16 @@ void bajaSala()
     {
         return;
     }
-
+    ArchivoFuncion arc2;
+    Funcion func;
+    int cantReg=arc2.contarRegistros();
+    for (int i=0;i<cantReg;i++){
+        func=arc2.leerRegistro(i);
+        if (func.getEstado() && func.getNumSala() == num) {
+    cout << "LA SALA TIENE FUNCIONES ACTIVAS" << endl;
+    return;
+}
+    }
     ArchivoSala arc;
     int pos = arc.buscarRegistro(num);
     if (pos < 0)

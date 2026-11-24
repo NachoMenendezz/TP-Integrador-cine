@@ -227,6 +227,14 @@ int seleccionarFuncion()
     return opc;
 }
 
+bool esPosterior(Fecha primera, Fecha segunda)
+{if (primera.getAnio() > segunda.getAnio()) {
+    return true;
+}
+if (primera.getAnio() < segunda.getAnio()) {
+    return false;
+}
+}
 
 
 
