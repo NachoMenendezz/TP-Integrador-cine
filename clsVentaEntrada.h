@@ -11,6 +11,7 @@ private:
     Fecha diaCompra;
     int dniComprador;
     int cantEntradasVendidas;
+    int importeTotal;
 
 public:
     // Constructor
@@ -22,6 +23,7 @@ public:
     void setDiaCompra(Fecha);
     void setDniComprador(int);
     void setCantEntradasVendidas(int);
+    void setImporteTotal(int);
 
     // Getters
     int getIdVenta();
@@ -29,8 +31,7 @@ public:
     Fecha getDiaCompra();
     int getDniComprador();
     int getCantEntradasVendidas();
-
-    void Cargar();
+    int getImporteTotal();
     void Mostrar();
 };
 

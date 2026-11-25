@@ -1,6 +1,7 @@
 #ifndef FUNCIONESGLOBALES_H_INCLUDED
 #define FUNCIONESGLOBALES_H_INCLUDED
 #include "clsFecha.h"
+
 int seleccionarGenero();
 int seleccionarPelicula();
 int seleccionarSala();

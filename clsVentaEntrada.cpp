@@ -10,6 +10,7 @@ VentaEntrada::VentaEntrada() {
     diaCompra = Fecha();
     dniComprador = 0;
     cantEntradasVendidas = 0;
+    importeTotal = 0;
 }
 
 // SETTERS
@@ -34,6 +35,10 @@ void VentaEntrada::setCantEntradasVendidas(int cantidad) {
     cantEntradasVendidas = cantidad;
 }
 
+void VentaEntrada::setImporteTotal(int Importe){
+importeTotal=Importe;
+}
+
 // GETTERS
 
 int VentaEntrada::getIdVenta() {
@@ -56,31 +61,11 @@ int VentaEntrada::getCantEntradasVendidas() {
     return cantEntradasVendidas;
 }
 
-// CARGAR
-
-void VentaEntrada::Cargar() {
-    // EL ID DE LA VENTA SE SOLICITA Y VERIFICA
-    // EN EL MENU ANTES DE CARGAR LOS DEMAS DATOS.
-
-    // LA FUNCION Y EL CLIENTE SE SELECCIONAN DESDE EL MENU,
-    // VERIFICANDO QUE LA FUNCION EXISTA Y ESTE ACTIVA
-    // Y QUE EL DNI CORRESPONDA A UN CLIENTE REGISTRADO.
-    // SUS IDENTIFICADORES SE ASIGNAN MEDIANTE LOS SETTERS.
-
-    cout << "INGRESE LA FECHA DE COMPRA:" << endl;
-    diaCompra.Cargar();
-
-    // VALIDAR QUE LA FECHA SEA CORRECTA
-    // Y QUE NO SEA UNA FECHA FUTURA.
-
-    cout << "INGRESE LA CANTIDAD DE ENTRADAS A COMPRAR: ";
-    cin >> cantEntradasVendidas;
-
-    // VALIDAR QUE LA CANTIDAD SEA MAYOR A CERO.
-    // VALIDAR QUE NO SUPERE LA CANTIDAD DE ENTRADAS DISPONIBLES
-    // PARA LA FUNCION SELECCIONADA.
-
+int VentaEntrada::getImporteTotal(){
+    return importeTotal;
 }
+
+
 
 // MOSTRAR
 
@@ -95,4 +80,5 @@ void VentaEntrada::Mostrar() {
     cout << "DNI DEL COMPRADOR: " << dniComprador << endl;
     cout << "CANTIDAD DE ENTRADAS VENDIDAS: "
          << cantEntradasVendidas << endl;
+    cout <<"IMPORTE TOTAL: $"<<importeTotal;
 }
