@@ -1,6 +1,6 @@
 #include <iostream>
 #include "clsFecha.h"
-
+#include <ctime>
 using namespace std;
 
 
@@ -61,5 +61,18 @@ if (mes == 2) {
 
 return dia <= maxDias;
 }
+
+void Fecha::setHoy(){
+time_t t = time(NULL);
+tm* hoy = localtime(&t);
+dia = hoy->tm_mday;
+mes = hoy->tm_mon + 1;
+anio = hoy->tm_year + 1900;
+
+}
+
+
+
 Fecha::~Fecha(){
 }
+

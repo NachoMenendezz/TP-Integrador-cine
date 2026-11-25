@@ -41,7 +41,7 @@ void consultarPeliculasPorGenero()
     }
     if (!mostroPelicula)
     {
-        cout << "NO HAY PELICULAS ACTIVAS CON ESE GENERO";
+        cout << "NO HAY PELICULAS ACTIVAS CON ESE GENERO"<<endl;
     }
 }
 
@@ -71,7 +71,7 @@ void consultarPeliculasPorNombre()
     }
     if (!mostroPelicula)
     {
-        cout << "NO HAY PELICULAS ACTIVAS CON ESE NOMBRE";
+        cout << "NO HAY PELICULAS ACTIVAS CON ESE NOMBRE"<<endl;
     }
 }
 
@@ -101,7 +101,7 @@ void consultarSalasPorNumeroSala()
 
     if (!mostroSala)
     {
-        cout << "NO EXISTEN SALAS CON ESE NUMERO";
+        cout << "NO EXISTEN SALAS CON ESE NUMERO"<<endl;
     }
 }
 
@@ -129,7 +129,7 @@ void consultarSalasPorTipoSala()
     }
     if (!mostroSala)
     {
-        cout << "NO HAY SALAS ACTIVAS CON ESE TIPO";
+        cout << "NO HAY SALAS ACTIVAS CON ESE TIPO"<<endl;
     }
 }
 
@@ -165,7 +165,7 @@ void consultarFuncionesPorFecha()
     }
     if (!mostroFuncion)
     {
-        cout << "NO EXISTEN FUNCIONES ACTIVAS EN ESA FECHA";
+        cout << "NO EXISTEN FUNCIONES ACTIVAS EN ESA FECHA"<<endl;
     }
 }
 
@@ -194,7 +194,7 @@ void consultarFuncionesPorPelicula()
 
     if (!mostroFuncion)
     {
-        cout << "NO EXISTEN FUNCIONES ACTIVAS PARA ESA PELICULA";
+        cout << "NO EXISTEN FUNCIONES ACTIVAS PARA ESA PELICULA"<<endl;
     }
 }
 
@@ -223,7 +223,7 @@ void consultarFuncionesPorSala()
     }
     if (!mostroFuncion)
     {
-        cout << "NO HAY FUNCIONES ACTIVAS EN ESA SALA";
+        cout << "NO HAY FUNCIONES ACTIVAS EN ESA SALA"<<endl;
     }
 }
 
@@ -292,7 +292,7 @@ void consultarClientesPorDni()
     }
     else
     {
-        cout << "NO EXISTE CLIENTE CON ESE DNI" << endl;
+        cout << "NO EXISTE CLIENTE CON ESE DNI" << endl<<endl;
     }
 }
 
@@ -323,7 +323,7 @@ void consultarClientesPorNombreApellido()
     }
     if (!mostroCliente)
     {
-        cout << "NO HAY CLIENTES CON ESE NOMBRE";
+        cout << "NO HAY CLIENTES CON ESE NOMBRE"<<endl;
     }
 }
 
@@ -371,7 +371,7 @@ void consultarVentasPorRangoFecha()
     }
     if (!mostroVenta)
     {
-        cout << "NO HAY VENTAS EN ESE RANGO";
+        cout << "NO HAY VENTAS EN ESE RANGO"<<endl;
     }
 }
 
@@ -399,7 +399,7 @@ void consultarVentasPorDni()
 
     if (!mostroVenta)
     {
-        cout << "NO EXISTEN VENTAS HECHAS POR ESE DNI";
+        cout << "NO EXISTEN VENTAS HECHAS POR ESE DNI"<<endl;
     }
 }
 
@@ -428,7 +428,7 @@ void consultarVentasPorFuncion()
     }
     if (!mostroVenta)
     {
-        cout << "NO HAY VENTAS PARA ESA FUNCION";
+        cout << "NO HAY VENTAS PARA ESA FUNCION"<<endl;
     }
 }
 
@@ -464,6 +464,6 @@ void consultarVentasPorPelicula()
     }
     if (!mostroVenta)
     {
-        cout << "NO EXISTEN VENTAS PARA ESTA PELICULA";
+        cout << "NO EXISTEN VENTAS PARA ESTA PELICULA"<<endl;
     }
 }

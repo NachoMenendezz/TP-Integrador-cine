@@ -7,11 +7,18 @@
     cout << "INGRESE EL NOMBRE Y APELLIDO: ";
     cin.ignore();
     cin.getline(nombreApellido, 50);
+    while (nombreApellido[0] == '\0') {
+    cout << "EL NOMBRE NO PUEDE ESTAR VACIO. INGRESELO NUEVAMENTE: ";
+    cin.getline(nombreApellido, 50);
+    }
 
     // VALIDAR QUE EL NOMBRE Y APELLIDO NO ESTEN VACIOS.
 
     cout << "INGRESE EL NUMERO DE TELEFONO: ";
     cin >> telefono;
-
+    while (telefono<=0){
+        cout<<"EL NUMERO DE TELEFONO NO ES VALIDO. INGRESELO NUEVAMENTE :";
+        cin>>telefono;
+    }
     // VALIDAR QUE EL TELEFONO SEA VALIDO.
 }// MOSTRARvoid Cliente::Mostrar() {        cout << "DNI DEL CLIENTE : " << dni << endl;        cout << "NOMBRE Y APELLIDO  : " << nombreApellido << endl;        cout << "TELEFONO: " << telefono << endl;}

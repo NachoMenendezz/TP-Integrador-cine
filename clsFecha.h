@@ -17,6 +17,7 @@ class Fecha{
         void Cargar();
         void Mostrar();
         bool esValida();
+        void setHoy();
         ~Fecha();
 };
 

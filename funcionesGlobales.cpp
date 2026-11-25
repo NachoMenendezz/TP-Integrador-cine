@@ -5,6 +5,7 @@
 #include "ArchivoFuncion.h"
 #include "ArchivoSala.h"
 #include "ArchivoTipoSala.h"
+#include "ArchivoVentaEntrada.h"
 using namespace std;
 
 // Muestra los géneros activos y devuelve el ID elegido.
@@ -251,4 +252,21 @@ bool esPosterior(Fecha primera, Fecha segunda)
 
     return primera.getDia() > segunda.getDia();
 }
-
+// Funcion auxiliar para contar cantidad de entradas vendidas por funcion
+int contarEntradasVendidasPorFuncion(int idFuncion)
+{
+    ArchivoVentaEntrada arc;
+    VentaEntrada venta;
+    int cantReg = arc.contarRegistros();
+    int entradasVendidas=0;
+    // Sumamos las entradas de cada compra de esta función. En la misma sala puede haber otras funciones.
+    for (int i = 0; i < cantReg; i++)
+    {
+        venta = arc.leerRegistro(i);
+        if (venta.getIdFuncion() == idFuncion)
+        {
+            entradasVendidas += venta.getCantEntradasVendidas();
+        }
+    }
+    return entradasVendidas;
+}

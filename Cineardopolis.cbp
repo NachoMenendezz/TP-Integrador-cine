@@ -48,6 +48,8 @@
 		<Unit filename="ArchivoTipoSala.h" />
 		<Unit filename="ArchivoVentaEntrada.cpp" />
 		<Unit filename="ArchivoVentaEntrada.h" />
+		<Unit filename="cliente.cpp" />
+		<Unit filename="cliente.h" />
 		<Unit filename="clsClientes.cpp" />
 		<Unit filename="clsClientes.h" />
 		<Unit filename="clsFecha.cpp" />
