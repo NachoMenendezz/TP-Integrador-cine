@@ -227,14 +227,28 @@ int seleccionarFuncion()
     return opc;
 }
 
+// Devuelve true si la primera fecha es posterior a la segunda.
+// Compara año, mes y día en ese orden. Si las fechas son iguales, devuelve false.
 bool esPosterior(Fecha primera, Fecha segunda)
-{if (primera.getAnio() > segunda.getAnio()) {
-    return true;
-}
-if (primera.getAnio() < segunda.getAnio()) {
-    return false;
-}
-}
+{
+    if (primera.getAnio() > segunda.getAnio())
+    {
+        return true;
+    }
+    if (primera.getAnio() < segunda.getAnio())
+    {
+        return false;
+    }
 
+    if (primera.getMes() > segunda.getMes())
+    {
+        return true;
+    }
+    if (primera.getMes() < segunda.getMes())
+    {
+        return false;
+    }
 
+    return primera.getDia() > segunda.getDia();
+}
 

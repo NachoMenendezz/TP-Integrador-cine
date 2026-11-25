@@ -1,5 +1,6 @@
 #include <iostream>#include <cstring>#include "menus.h"
-#include "funcionesGlobales.h"#include "clsPelicula.h"#include "ArchivoPeliculas.h"#include "clsSala.h"#include "ArchivoSala.h"#include "clsFuncion.h"#include "ArchivoFuncion.h"#include "clsClientes.h"#include "ArchivoCliente.h"#include "clsTipoGenero.h"#include "ArchivoTipoGenero.h"#include "clsTipoSala.h"#include "ArchivoTipoSala.h"#include "clsVentaEntrada.h"#include "ArchivoVentaEntrada.h"using namespace std;//MENÚ PRINCIPALvoid menuPrincipal() {    while (true) {        int opc;        system("cls");        cout << "========================================" << endl;        cout << "        CINEARDOPOLIS - SISTEMA         " << endl;        cout << "========================================" << endl;        cout << " 1. EMPLEADO" << endl;        cout << " 2. CLIENTE" << endl;        cout << " 0. SALIR" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        system("cls");        switch (opc) {            case 1:                menuEmpleado();                break;            case 2:                menuCliente();                break;            case 0:                cout << "Gracias por utilizar Cineardopolis." << endl;                return;            default:                cout << "OPCION NO VALIDA." << endl;                system("pause");                break;        }    }}//MENÚ EMPLEADOvoid menuEmpleado() {    while (true) {        int opc;        system("cls");        cout << "========================================" << endl;        cout << "            MENU EMPLEADO               " << endl;        cout << "========================================" << endl;        cout << " 1. Gestion de datos (ABM)" << endl;        cout << " 2. Listados" << endl;        cout << " 3. Consultas" << endl;        cout << " 4. Informes" << endl;        cout << " 0. Volver" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        system("cls");        switch (opc) {            case 1:                menuGestionDatos();                break;            case 2:                menuListados();                break;            case 3:                menuConsultas();                break;            case 4:                menuInformes();                break;            case 0:                return;            default:                cout << "OPCION NO VALIDA." << endl;                system("pause");                break;        }    }}//GESTIÓN DE DATOS (ABM)void menuGestionDatos() {    while (true) {        int opc;        system("cls");        cout << "========================================" << endl;        cout << "        GESTION DE DATOS (ABM)          " << endl;        cout << "========================================" << endl;        cout << " 1. Peliculas" << endl;        cout << " 2. Generos" << endl;        cout << " 3. Salas" << endl;        cout << " 4. Tipos de salas" << endl;        cout << " 5. Funciones" << endl;        cout << " 0. Volver" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        system("cls");        switch (opc) {            case 1:                menuPeliculas();                break;            case 2:                menuGeneros();                break;            case 3:                menuSalas();                break;            case 4:                menuTipoSalas();                break;            case 5:                menuFunciones();                break;            case 0:                return;            default:                cout << "OPCION NO VALIDA." << endl;                system("pause");                break;        }    }}//SUBMENÚ PELÍCULAS (ABM)void menuPeliculas() {    int opc;    while (true) {        system("cls");        cout << "========================================" << endl;        cout << "         GESTION DE PELICULAS           " << endl;        cout << "========================================" << endl;        cout << " 1 - AGREGAR PELICULA" << endl;        cout << " 2 - BAJA PELICULA" << endl;        cout << " 3 - MODIFICAR PELICULA" << endl;        cout << " 0 - VOLVER" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        system("cls");        switch (opc) {            case 1:                agregarPelicula();                break;            case 2:                bajaPelicula();                break;            case 3:                modificarPelicula();                break;            case 0:                return;            default:                cout << "OPCION NO VALIDA." << endl;                break;        }        system("pause");    }}void listarPeliculas() {    ArchivoPeliculas arc;    arc.listarRegistros();}void agregarPelicula() {    ArchivoPeliculas arc;
+#include "funcionesGlobales.h"#include "listados.h"
+#include "consultas.h"#include "clsPelicula.h"#include "ArchivoPeliculas.h"#include "clsSala.h"#include "ArchivoSala.h"#include "clsFuncion.h"#include "ArchivoFuncion.h"#include "clsClientes.h"#include "ArchivoCliente.h"#include "clsTipoGenero.h"#include "ArchivoTipoGenero.h"#include "clsTipoSala.h"#include "ArchivoTipoSala.h"#include "clsVentaEntrada.h"#include "ArchivoVentaEntrada.h"using namespace std;//MENÚ PRINCIPALvoid menuPrincipal() {    while (true) {        int opc;        system("cls");        cout << "========================================" << endl;        cout << "        CINEARDOPOLIS - SISTEMA         " << endl;        cout << "========================================" << endl;        cout << " 1. EMPLEADO" << endl;        cout << " 2. CLIENTE" << endl;        cout << " 0. SALIR" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        system("cls");        switch (opc) {            case 1:                menuEmpleado();                break;            case 2:                menuCliente();                break;            case 0:                cout << "Gracias por utilizar Cineardopolis." << endl;                return;            default:                cout << "OPCION NO VALIDA." << endl;                system("pause");                break;        }    }}//MENÚ EMPLEADOvoid menuEmpleado() {    while (true) {        int opc;        system("cls");        cout << "========================================" << endl;        cout << "            MENU EMPLEADO               " << endl;        cout << "========================================" << endl;        cout << " 1. Gestion de datos (ABM)" << endl;        cout << " 2. Listados" << endl;        cout << " 3. Consultas" << endl;        cout << " 4. Informes" << endl;        cout << " 0. Volver" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        system("cls");        switch (opc) {            case 1:                menuGestionDatos();                break;            case 2:                menuListados();                break;            case 3:                menuConsultas();                break;            case 4:                menuInformes();                break;            case 0:                return;            default:                cout << "OPCION NO VALIDA." << endl;                system("pause");                break;        }    }}//GESTIÓN DE DATOS (ABM)void menuGestionDatos() {    while (true) {        int opc;        system("cls");        cout << "========================================" << endl;        cout << "        GESTION DE DATOS (ABM)          " << endl;        cout << "========================================" << endl;        cout << " 1. Peliculas" << endl;        cout << " 2. Generos" << endl;        cout << " 3. Salas" << endl;        cout << " 4. Tipos de salas" << endl;        cout << " 5. Funciones" << endl;        cout << " 0. Volver" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        system("cls");        switch (opc) {            case 1:                menuPeliculas();                break;            case 2:                menuGeneros();                break;            case 3:                menuSalas();                break;            case 4:                menuTipoSalas();                break;            case 5:                menuFunciones();                break;            case 0:                return;            default:                cout << "OPCION NO VALIDA." << endl;                system("pause");                break;        }    }}//SUBMENÚ PELÍCULAS (ABM)void menuPeliculas() {    int opc;    while (true) {        system("cls");        cout << "========================================" << endl;        cout << "         GESTION DE PELICULAS           " << endl;        cout << "========================================" << endl;        cout << " 1 - AGREGAR PELICULA" << endl;        cout << " 2 - BAJA PELICULA" << endl;        cout << " 3 - MODIFICAR PELICULA" << endl;        cout << " 0 - VOLVER" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        system("cls");        switch (opc) {            case 1:                agregarPelicula();                break;            case 2:                bajaPelicula();                break;            case 3:                modificarPelicula();                break;            case 0:                return;            default:                cout << "OPCION NO VALIDA." << endl;                break;        }        system("pause");    }}void listarPeliculas() {    ArchivoPeliculas arc;    arc.listarRegistros();}void agregarPelicula() {    ArchivoPeliculas arc;
     int id= arc.generarId();    Pelicula obj;    obj.setIdPelicula(id);
     int genero=seleccionarGenero();
     if (genero == -1) {
@@ -566,4 +567,422 @@ void bajaFuncion() {
 } else {
     cout << "ERROR AL MODIFICAR LA FUNCION." << endl;
 }
-}void listarFunciones() {    ArchivoFuncion arc;    arc.listarRegistros();}//               LISTADOS,CONSULTAS y INFORMES// ===================================================//                  SECCIÓN LISTADOS// ===================================================void menuListados() {    int opc;    while (true) {        system("cls");        cout << "========================================" << endl;        cout << "            MENU LISTADOS               " << endl;        cout << "========================================" << endl;        cout << " 1. PELICULAS" << endl;        cout << " 2. GENEROS" << endl;        cout << " 3. SALAS" << endl;        cout << " 4. TIPOS DE SALA" << endl;        cout << " 5. FUNCIONES" << endl;        cout << " 6. CLIENTES" << endl;        cout << " 7. VENTAS DE ENTRADAS" << endl;        cout << " 0. VOLVER" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        switch (opc) {/*            case 1: subMenuListarPeliculas();            break;            case 2: subMenuListarGeneros();            break;            case 3: subMenuListarSalas();            break;            case 4: subMenuListarTiposSala();            break;            case 5: subMenuListarFunciones();            break;            case 6: subMenuListarClientes();            break;            case 7: subMenuListarVentas();            break;*/            case 0: return;            default:                cout << "OPCION NO VALIDA." << endl;                system("pause");                break;        }    }}void subMenuListarPeliculas() {    int opc;    while (true) {        system("cls");        cout << "========================================" << endl;        cout << "          LISTADO DE PELICULAS          " << endl;        cout << "========================================" << endl;        cout << " 1 - ORDENADAS POR NOMBRE" << endl;        cout << " 2 - ORDENADAS POR FECHA DE ESTRENO" << endl;        cout << " 0 - VOLVER" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        switch (opc) {            case 1:                cout << "Listando peliculas por nombre..." << endl;                // listarPeliculasPorNombre();                break;            case 2:                cout << "Listando peliculas por fecha de estreno..." << endl;                // listarPeliculasPorFechaEstreno();                break;            case 0: return;            default: cout << "OPCION NO VALIDA." << endl; break;        }        system("pause");    }}void subMenuListarGeneros() {    int opc;    while (true) {        system("cls");        cout << "========================================" << endl;        cout << "           LISTADO DE GENEROS           " << endl;        cout << "========================================" << endl;        cout << " 1 - ORDENADOS POR NOMBRE" << endl;        cout << " 0 - VOLVER" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        switch (opc) {            case 1:                cout << "Listando generos por nombre..." << endl;                // listarGenerosPorNombre();                break;            case 0: return;            default: cout << "OPCION NO VALIDA." << endl; break;        }        system("pause");    }}void subMenuListarSalas() {    int opc;    while (true) {        system("cls");        cout << "========================================" << endl;        cout << "            LISTADO DE SALAS            " << endl;        cout << "========================================" << endl;        cout << " 1 - ORDENADAS POR NUMERO DE SALA" << endl;        cout << " 2 - ORDENADAS POR CAPACIDAD TOTAL" << endl;        cout << " 0 - VOLVER" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        switch (opc) {            case 1:                cout << "Listando salas por numero..." << endl;                // listarSalasPorNumero();                break;            case 2:                cout << "Listando salas por capacidad..." << endl;                // listarSalasPorCapacidad();                break;            case 0: return;            default: cout << "OPCION NO VALIDA." << endl; break;        }        system("pause");    }}void subMenuListarTiposSala() {    int opc;    while (true) {        system("cls");        cout << "========================================" << endl;        cout << "        LISTADO DE TIPOS DE SALA        " << endl;        cout << "========================================" << endl;        cout << " 1 - ORDENADOS POR DESCRIPCION" << endl;        cout << " 0 - VOLVER" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        switch (opc) {            case 1:                cout << "Listando tipos de sala por descripcion..." << endl;                // listarTiposSalaPorDescripcion();                break;            case 0: return;            default: cout << "OPCION NO VALIDA." << endl; break;        }        system("pause");    }}void subMenuListarFunciones() {    int opc;    while (true) {        system("cls");        cout << "========================================" << endl;        cout << "          LISTADO DE FUNCIONES          " << endl;        cout << "========================================" << endl;        cout << " 1 - ORDENADAS POR FECHA Y HORARIO" << endl;        cout << " 2 - ORDENADAS POR PELICULA" << endl;        cout << " 3 - ORDENADAS POR SALA" << endl;        cout << " 0 - VOLVER" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        switch (opc) {            case 1:                cout << "Listando funciones por fecha y horario..." << endl;                // listarFuncionesPorFecha();                break;            case 2:                cout << "Listando funciones por pelicula..." << endl;                // listarFuncionesPorPelicula();                break;            case 3:                cout << "Listando funciones por sala..." << endl;                // listarFuncionesPorSala();                break;            case 0: return;            default: cout << "OPCION NO VALIDA." << endl; break;        }        system("pause");    }}void subMenuListarClientes() {    int opc;    while (true) {        system("cls");        cout << "========================================" << endl;        cout << "          LISTADO DE CLIENTES           " << endl;        cout << "========================================" << endl;        cout << " 1 - ORDENADOS POR DNI" << endl;        cout << " 2 - ORDENADOS POR NOMBRE Y APELLIDO" << endl;        cout << " 0 - VOLVER" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        switch (opc) {            case 1:                cout << "Listando clientes por DNI..." << endl;                // listarClientesPorDNI();                break;            case 2:                cout << "Listando clientes por nombre y apellido..." << endl;                // listarClientesPorNombre();                break;            case 0: return;            default: cout << "OPCION NO VALIDA." << endl; break;        }        system("pause");    }}void subMenuListarVentas() {    int opc;    while (true) {        system("cls");        cout << "========================================" << endl;        cout << "       LISTADO DE VENTAS DE ENTRADAS    " << endl;        cout << "========================================" << endl;        cout << " 1 - ORDENADAS POR FECHA DE COMPRA" << endl;        cout << " 2 - ORDENADAS POR DNI DEL COMPRADOR" << endl;        cout << " 3 - ORDENADAS POR FUNCION" << endl;        cout << " 0 - VOLVER" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        switch (opc) {            case 1:                cout << "Listando ventas por fecha de compra..." << endl;                // listarVentasPorFecha();                break;            case 2:                cout << "Listando ventas por DNI..." << endl;                // listarVentasPorDNI();                break;            case 3:                cout << "Listando ventas por funcion..." << endl;                // listarVentasPorFuncion();                break;            case 0: return;            default: cout << "OPCION NO VALIDA." << endl; break;        }        system("pause");    }}void menuConsultas() {    cout << "--- CONSULTAS ---" << endl;    system("pause");}void menuInformes() {    cout << "--- INFORMES ---" << endl;    system("pause");}//MENÚ CLIENTEvoid menuCliente() {    int opc;    while (true) {        system("cls");        cout << "========================================" << endl;        cout << "             MENU CLIENTE               " << endl;        cout << "========================================" << endl;        cout << " 1 - CONSULTAR FUNCIONES DISPONIBLES" << endl;        cout << " 2 - COMPRAR ENTRADAS" << endl;        cout << " 3 - CONSULTAR MIS COMPRAS" << endl;        cout << " 0 - VOLVER" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        system("cls");        switch (opc) {            case 1:                listarFunciones();                break;            case 2:                realizarVenta();                break;            case 3:                consultarComprasCliente();                break;            case 0:                return;            default:                cout << "OPCION NO VALIDA." << endl;                break;        }        system("pause");    }}void realizarVenta() {    cout << "--- PROCESO DE VENTA DE ENTRADAS ---" << endl;    cout << "En desarrollo..." << endl;}void consultarComprasCliente() {    cout << "--- MIS COMPRAS ---" << endl;    cout << "En desarrollo..." << endl;}
+}void listarFunciones() {    ArchivoFuncion arc;    arc.listarRegistros();}//               LISTADOS,CONSULTAS y INFORMES// ===================================================//                  SECCIÓN LISTADOS// ===================================================void menuListados() {
+    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "            MENU LISTADOS               " << endl;
+        cout << "========================================" << endl;
+        cout << " 1. PELICULAS" << endl;
+        cout << " 2. GENEROS" << endl;
+        cout << " 3. SALAS" << endl;
+        cout << " 4. TIPOS DE SALA" << endl;
+        cout << " 5. FUNCIONES" << endl;
+        cout << " 6. CLIENTES" << endl;
+        cout << " 7. VENTAS DE ENTRADAS" << endl;
+        cout << " 0. VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1: subMenuListarPeliculas(); break;
+            case 2: subMenuListarGeneros(); break;
+            case 3: subMenuListarSalas(); break;
+            case 4: subMenuListarTiposSala(); break;
+            case 5: subMenuListarFunciones(); break;
+            case 6: subMenuListarClientes(); break;
+            case 7: subMenuListarVentas(); break;
+            case 0: return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                system("pause");
+                break;
+        }
+    }
+}
+
+void subMenuListarPeliculas() {
+    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "          LISTADO DE PELICULAS          " << endl;
+        cout << "========================================" << endl;
+        cout << " 1 - ORDENADAS POR NOMBRE" << endl;
+        cout << " 0 - VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1:
+                listarPeliculasPorNombre();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                break;
+        }
+        system("pause");
+    }
+}
+
+void subMenuListarGeneros() {
+    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "           LISTADO DE GENEROS           " << endl;
+        cout << "========================================" << endl;
+        cout << " 1 - ORDENADOS POR NOMBRE" << endl;
+        cout << " 0 - VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1:
+                listarGenerosPorNombre();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                break;
+        }
+        system("pause");
+    }
+}
+
+void subMenuListarSalas() {
+    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "            LISTADO DE SALAS            " << endl;
+        cout << "========================================" << endl;
+        cout << " 1 - ORDENADAS POR NUMERO DE SALA" << endl;
+        cout << " 0 - VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1:
+                listarSalasPorNumero();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                break;
+        }
+        system("pause");
+    }
+}
+
+void subMenuListarTiposSala() {
+    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "        LISTADO DE TIPOS DE SALA        " << endl;
+        cout << "========================================" << endl;
+        cout << " 1 - ORDENADOS POR DESCRIPCION" << endl;
+        cout << " 0 - VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1:
+                listarTiposSalaPorDescripcion();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                break;
+        }
+        system("pause");
+    }
+}
+
+void subMenuListarFunciones() {
+    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "          LISTADO DE FUNCIONES          " << endl;
+        cout << "========================================" << endl;
+        cout << " 1 - ORDENADAS POR PELICULA (FECHA Y HORA)" << endl;
+        cout << " 0 - VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1:
+                listarFuncionesPorPeliculaYFecha();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                break;
+        }
+        system("pause");
+    }
+}
+
+void subMenuListarClientes() {
+    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "          LISTADO DE CLIENTES           " << endl;
+        cout << "========================================" << endl;
+        cout << " 1 - ORDENADOS POR DNI" << endl;
+        cout << " 0 - VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1:
+                listarClientesPorDNI();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                break;
+        }
+        system("pause");
+    }
+}
+
+void subMenuListarVentas() {
+    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "      LISTADO DE VENTAS DE ENTRADAS     " << endl;
+        cout << "========================================" << endl;
+        cout << " 1 - ORDENADAS POR DNI DEL COMPRADOR" << endl;
+        cout << " 2 - ORDENADAS POR FUNCION" << endl;
+        cout << " 0 - VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1:
+                listarVentasPorDNI();
+                break;
+            case 2:
+                listarVentasPorFuncion();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                break;
+        }
+        system("pause");
+    }
+}void menuConsultas() {    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "            MENU CONSULTAS               " << endl;
+        cout << "========================================" << endl;
+        cout << " 1. PELICULAS" << endl;
+        cout << " 2. SALAS" << endl;
+        cout << " 3. FUNCIONES" << endl;
+        cout << " 4. CLIENTES" << endl;
+        cout << " 5. VENTAS" << endl;
+        cout << " 0. VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1: subMenuConsultaPeliculas(); break;
+            case 2: subMenuConsultaSalas(); break;
+            case 3: subMenuConsultaFunciones(); break;
+            case 4: subMenuConsultaClientes(); break;
+            case 5: subMenuListarVentas(); break;
+            case 0: return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                system("pause");
+                break;
+        }
+    }}
+
+void subMenuConsultaPeliculas() {
+    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "          CONSULTA DE PELICULAS          " << endl;
+        cout << "========================================" << endl;
+        cout << " 1 -  POR NOMBRE" << endl;
+        cout << " 2 -  POR GENERO" << endl;
+        cout << " 0 - VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1:
+                consultarPeliculasPorNombre();
+                break;
+            case 2:consultarPeliculasPorGenero();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                break;
+        }
+        system("pause");
+    }
+}
+void subMenuConsultaSalas() {
+    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "          CONSULTA DE SALAS          " << endl;
+        cout << "========================================" << endl;
+        cout << " 1 -  POR NUMERO DE SALA" << endl;
+        cout << " 2 -  POR TIPO DE SALA" << endl;
+        cout << " 0 - VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1:
+                consultarSalasPorNumeroSala();
+                break;
+            case 2:consultarSalasPorTipoSala();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                break;
+        }
+        system("pause");
+    }
+}
+
+void subMenuConsultaFunciones() {
+    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "          CONSULTA DE FUNCIONES          " << endl;
+        cout << "========================================" << endl;
+        cout << " 1 -  POR FECHA" << endl;
+        cout << " 2 -  POR PELICULA" << endl;
+        cout << " 3 -  POR SALA" << endl;
+        cout << " 4 -  POR DISPONIBILIDAD" << endl;
+        cout << " 0 - VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1:
+                consultarFuncionesPorSala();
+                break;
+            case 2:consultarFuncionesPorPelicula();
+                break;
+            case 3:consultarFuncionesPorSala();
+                break;
+            case 4:consultarFuncionesPorDisponibilidad();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                break;
+        }
+        system("pause");
+    }
+}
+
+void subMenuConsultaClientes() {
+    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "          CONSULTA DE CLIENTES          " << endl;
+        cout << "========================================" << endl;
+        cout << " 1 -  POR DNI" << endl;
+        cout << " 2 -  POR NOMBRE Y APELLIDO" << endl;
+        cout << " 0 - VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1:
+                consultarClientesPorDni();
+                break;
+            case 2:consultarClientesPorNombreApellido();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                break;
+        }
+        system("pause");
+    }
+}
+
+void subMenuConsultaVentas() {
+    int opc;
+    while (true) {
+        system("cls");
+        cout << "========================================" << endl;
+        cout << "          CONSULTA DE VENTAS          " << endl;
+        cout << "========================================" << endl;
+        cout << " 1 -  POR RANGO DE FECHAS DE COMPRA" << endl;
+        cout << " 2 -  POR DNI DEL COMPRADOR" << endl;
+        cout << " 3 -  POR FUNCION" << endl;
+        cout << " 4 -  POR PELICULA" << endl;
+        cout << " 0 - VOLVER" << endl;
+        cout << "========================================" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+
+        switch (opc) {
+            case 1:
+                consultarVentasPorRangoFecha();
+                break;
+            case 2:consultarVentasPorDni();
+                break;
+            case 3:consultarVentasPorFuncion();
+                break;
+            case 4:consultarVentasPorPelicula();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION NO VALIDA." << endl;
+                break;
+        }
+        system("pause");
+    }
+}
+
+void menuInformes() {    cout << "--- INFORMES ---" << endl;    system("pause");}//MENÚ CLIENTEvoid menuCliente() {    int opc;    while (true) {        system("cls");        cout << "========================================" << endl;        cout << "             MENU CLIENTE               " << endl;        cout << "========================================" << endl;        cout << " 1 - CONSULTAR FUNCIONES DISPONIBLES" << endl;        cout << " 2 - COMPRAR ENTRADAS" << endl;        cout << " 3 - CONSULTAR MIS COMPRAS" << endl;        cout << " 0 - VOLVER" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        system("cls");        switch (opc) {            case 1:                listarFunciones();                break;            case 2:                realizarVenta();                break;            case 3:                consultarComprasCliente();                break;            case 0:                return;            default:                cout << "OPCION NO VALIDA." << endl;                break;        }        system("pause");    }}void realizarVenta() {    cout << "--- PROCESO DE VENTA DE ENTRADAS ---" << endl;    cout << "En desarrollo..." << endl;}void consultarComprasCliente() {    cout << "--- MIS COMPRAS ---" << endl;    cout << "En desarrollo..." << endl;}
