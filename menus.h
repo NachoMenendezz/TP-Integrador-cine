@@ -16,7 +16,7 @@ void subMenuConsultaPeliculas();
 void subMenuConsultaSalas();
 void subMenuConsultaFunciones();
 void subMenuConsultaClientes();
-void subMenuListarVentas();
+void subMenuConsultaVentas();
 // Submenú y Procesos Clientevoid realizarVenta();void consultarComprasCliente();
 
 // Funciones globales

@@ -244,7 +244,9 @@ void realizarVenta()
     int dni;
     cout << "\nINGRESE SU DNI: ";
     cin >> dni;
-
+    if (dni<=0){
+        cout<<"EL NUMERO INGRESADO NO ES VALIDO"; return;
+    }
     ArchivoCliente arcClientes;
     int posCliente = arcClientes.buscarRegistro(dni);
     Cliente nuevoCliente;
