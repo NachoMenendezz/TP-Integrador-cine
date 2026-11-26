@@ -975,9 +975,9 @@ void agregarFuncion()
 // Fecha mínima fija para la demostración del TP.
     if (fecha.getAnio() < 2026 ||
             (fecha.getAnio() == 2026 && fecha.getMes() < 11) ||
-            (fecha.getAnio() == 2026 && fecha.getMes() == 11 && fecha.getDia() < 24))
+            (fecha.getAnio() == 2026 && fecha.getMes() == 11 && fecha.getDia() < 26))
     {
-        cout << "LA FECHA DE LA FUNCION DEBE SER EL 24/11/2026 O POSTERIOR." << endl;
+        cout << "LA FECHA DE LA FUNCION DEBE SER EL 26/11/2026 O POSTERIOR." << endl;
         return;
     }
 
@@ -1104,9 +1104,9 @@ void modificarFuncion()
         if (nuevaFecha.getAnio() < 2026 ||
                 (nuevaFecha.getAnio() == 2026 && nuevaFecha.getMes() < 11) ||
                 (nuevaFecha.getAnio() == 2026 && nuevaFecha.getMes() == 11 &&
-                 nuevaFecha.getDia() < 24))
+                 nuevaFecha.getDia() < 26))
         {
-            cout << "LA FECHA DEBE SER DEL 24/11/2026 EN ADELANTE." << endl;
+            cout << "LA FECHA DEBE SER DEL 26/11/2026 EN ADELANTE." << endl;
             return;
         }
 
