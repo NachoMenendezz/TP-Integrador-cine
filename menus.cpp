@@ -8,7 +8,7 @@
 #include "cliente.h"
 #include "clsPelicula.h"
 #include "ArchivoPeliculas.h"
-
+#include "rlutil.h"
 #include "clsSala.h"
 #include "ArchivoSala.h"
 
@@ -32,7 +32,7 @@ using namespace std;
 //MENÚ PRINCIPAL
 
 void menuPrincipal()
-{
+{    rlutil::setBackgroundColor(rlutil::BLUE); // Fondo Azul    rlutil::setColor(rlutil::WHITE); // letras blancas    rlutil::cls();
     while (true)
     {
         int opc;
@@ -71,7 +71,7 @@ void menuPrincipal()
 //MENÚ EMPLEADO
 
 void menuEmpleado()
-{
+{     rlutil::setBackgroundColor(rlutil::BLUE); // Fondo Azul    rlutil::setColor(rlutil::WHITE); // letras blancas    rlutil::cls();
     while (true)
     {
         int opc;
@@ -112,12 +112,12 @@ void menuEmpleado()
             break;
         }
     }
-}
+}//MENÚ CLIENTEvoid menuCliente(){    rlutil::setBackgroundColor(rlutil::BLUE); // Fondo Azul    rlutil::setColor(rlutil::WHITE); // letras blancas    rlutil::cls();    int opc;    while (true)    {        system("cls");        cout << "========================================" << endl;        cout << "              MENU CLIENTE              " << endl;        cout << "========================================" << endl;        cout << " 1. COMPRAR ENTRADAS" << endl;        cout << " 0. VOLVER" << endl;        cout << "========================================" << endl;        cout << "INGRESE UNA OPCION: ";        cin >> opc;        switch (opc)        {        case 1:            realizarVenta();            break;        case 0:            return;        default:            cout << "OPCION NO VALIDA." << endl;            break;        }        system("pause");    }}
 
 //GESTIÓN DE DATOS (ABM)
 
 void menuGestionDatos()
-{
+{
     while (true)
     {
         int opc;
@@ -1685,38 +1685,6 @@ void menuInformes()
         default:
             cout << "OPCION NO VALIDA." << endl;
             system("pause");
-            break;
-        }
-        system("pause");
-    }
-}
-
-//MENÚ CLIENTE
-
-void menuCliente()
-{
-    int opc;
-    while (true)
-    {
-        system("cls");
-        cout << "========================================" << endl;
-        cout << "              MENU CLIENTE              " << endl;
-        cout << "========================================" << endl;
-        cout << " 1. COMPRAR ENTRADAS" << endl;
-        cout << " 0. VOLVER" << endl;
-        cout << "========================================" << endl;
-        cout << "INGRESE UNA OPCION: ";
-        cin >> opc;
-
-        switch (opc)
-        {
-        case 1:
-            realizarVenta();
-            break;
-        case 0:
-            return;
-        default:
-            cout << "OPCION NO VALIDA." << endl;
             break;
         }
         system("pause");
