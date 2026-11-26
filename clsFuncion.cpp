@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include "clsFuncion.h"
+#include "ArchivoPeliculas.h"
 
 using namespace std;
 
@@ -91,9 +92,18 @@ void Funcion::Cargar() {
 
 // MOSTRAR
 
-void Funcion::Mostrar() {
+void Funcion::Mostrar()
+{
     cout << "ID FUNCION: " << idFuncion << endl;
     cout << "ID PELICULA: " << idPelicula << endl;
+    ArchivoPeliculas arcPeliculas;
+    int posPelicula = arcPeliculas.buscarRegistro(idPelicula);
+
+    if (posPelicula >= 0)
+    {
+        Pelicula peli = arcPeliculas.leerRegistro(posPelicula);
+        cout << "NOMBRE DE LA PELICULA: " << peli.getNombrePelicula() << endl;
+    }
     cout << "NUMERO DE SALA: " << numSala << endl;
 
     cout << "FECHA DE LA FUNCION: ";
