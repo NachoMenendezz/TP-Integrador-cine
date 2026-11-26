@@ -22,6 +22,9 @@ int seleccionarGenero()
         if (obj.getEstado())
         {
             activos++;
+            if (activos==1){
+                cout<<"GENEROS ACTIVOS DISPONIBLES: "<<endl;
+            }
             cout << "ID:" << obj.getTipoGenero() << " - "
                  << obj.getNombreGenero() << endl;
         }
@@ -54,6 +57,7 @@ int seleccionarGenero()
 int seleccionarSala()
 {
     ArchivoSala arc;
+    ArchivoTipoSala arcTipos;
     int opc;
     int cantReg=arc.contarRegistros();
     int activos=0;
@@ -63,7 +67,21 @@ int seleccionarSala()
         if (obj.getEstado())
         {
             activos++;
-            cout <<"SALA: " << obj.getNumSala() << " - " << obj.getNombreSala() << endl;
+            if (activos==1)
+            {
+                cout<<"SALAS ACTIVAS DISPONIBLES: "<<endl;
+            }
+            int posTipo = arcTipos.buscarRegistro(obj.getTipoSala());
+
+            cout << "SALA: " << obj.getNumSala();
+
+            if (posTipo >= 0)
+            {
+                TipoSala tipo = arcTipos.leerRegistro(posTipo);
+                cout << " - " << tipo.getDescSala();
+            }
+
+            cout << endl;
         }
 
     }
@@ -101,6 +119,9 @@ int seleccionarPelicula()
         if (obj.getEstado())
         {
             activos++;
+            if (activos==1){
+                cout<<"PELICULAS ACTIVAS DISPONIBLES: "<<endl;
+            }
             cout <<"ID: " << obj.getIdPelicula() << " - " << obj.getNombrePelicula() << endl;
         }
 
@@ -140,6 +161,9 @@ int seleccionarTipoSala()
         if (obj.getEstado())
         {
             activos++;
+            if (activos==1){
+                cout<<"TIPOS DE SALAS DISPONIBLES: "<<endl;
+            }
             cout << "ID: " << obj.getTipoSala() << " - "
                  << obj.getDescSala() << endl;
         }
@@ -184,6 +208,9 @@ int seleccionarFuncion()
             // La función guarda el ID de la película.
             // Buscamos ese ID en Peliculas.dat para obtener su posición y leer el nombre.
             activos++;
+            if (activos==1){
+                cout<<"FUNCIONES ACTIVAS DISPONIBLES: "<<endl;
+            }
             int posPelicula = arc2.buscarRegistro(obj.getIdPelicula());
 
             cout << "ID: " << obj.getIdFuncion() << " - ";

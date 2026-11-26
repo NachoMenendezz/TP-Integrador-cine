@@ -1,12 +1,11 @@
 #include <iostream>
-#include <cstring>
 #include "clsSala.h"
+#include "ArchivoTipoSala.h"
 
 using namespace std;
 
 Sala::Sala() {
     numSala = 0;
-    nombreSala[0] = '\0';
     tipoSala = 0;
     capacidadTotal = 0;
     estado = false;
@@ -16,9 +15,7 @@ Sala::Sala() {
 void Sala::setNumSala(int num) {
     numSala = num;
 }
-void Sala::setNombreSala(const char *nombre) {
-    strcpy(nombreSala, nombre);
-}
+
 void Sala::setTipoSala(int tipo) {
     tipoSala = tipo;
 }
@@ -33,9 +30,6 @@ void Sala::setEstado(bool est) {
 int Sala::getNumSala() {
     return numSala;
 }
-const char *Sala::getNombreSala() {
-    return nombreSala;
-}
 int Sala::getTipoSala() {
     return tipoSala;
 }
@@ -49,16 +43,6 @@ bool Sala::getEstado() {
 // CARGAR
 void Sala::Cargar() {
     // El alta asigna el número generado y el tipo seleccionado antes de llamar a Cargar().
-    cout << "INGRESE EL NOMBRE DE LA SALA: ";
-
-    // Consume el Enter que dejó la selección del tipo de sala.
-    cin.ignore();
-    cin.getline(nombreSala, 30);
-
-    while (nombreSala[0] == '\0') {
-        cout << "EL NOMBRE NO PUEDE ESTAR VACIO. INGRESELO NUEVAMENTE: ";
-        cin.getline(nombreSala, 30);
-    }
 
     cout << "INGRESE LA CAPACIDAD TOTAL DE LA SALA: ";
     cin >> capacidadTotal;
@@ -71,9 +55,22 @@ void Sala::Cargar() {
     estado = true;
 }
 // MOSTRAR
-void Sala::Mostrar() {
+void Sala::Mostrar()
+{
     cout << "NUMERO DE SALA: " << numSala << endl;
-    cout << "NOMBRE: " << nombreSala << endl;
-    cout << "ID TIPO DE SALA: " << tipoSala << endl;
+
+    ArchivoTipoSala arcTipos;
+    int posTipo = arcTipos.buscarRegistro(tipoSala);
+
+    if (posTipo >= 0)
+    {
+        TipoSala tipo = arcTipos.leerRegistro(posTipo);
+        cout << "TIPO DE SALA: " << tipo.getDescSala() << endl;
+    }
+    else
+    {
+        cout << "ID TIPO DE SALA: " << tipoSala << endl;
+    }
+
     cout << "CAPACIDAD TOTAL: " << capacidadTotal << endl;
 }

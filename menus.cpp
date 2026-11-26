@@ -569,7 +569,6 @@ void agregarSala()
     obj.setNumSala(arc.generarId());
     obj.setTipoSala(num);
     obj.Cargar();
-
     if (arc.grabarRegistro(obj))
     {
         cout << "SALA GRABADA CON EXITO. NUMERO DE SALA: "
@@ -641,9 +640,8 @@ void modificarSala()
 
     system("cls");
     cout << "==============" << endl;
-    cout << "1 - Modificar nombre de la sala" << endl;
-    cout << "2 - Modificar tipo de sala" << endl;
-    cout << "3 - Modificar capacidad total de la sala" << endl;
+    cout << "1 - Modificar tipo de sala" << endl;
+    cout << "2 - Modificar capacidad total de la sala" << endl;
     cout << "0 - Volver" << endl;
     cout << "==============" << endl;
     cout << "INGRESE UNA OPCION: ";
@@ -653,21 +651,6 @@ void modificarSala()
     switch (opc)
     {
     case 1:
-    {
-        char nuevoNombre[30];
-
-        cout << "INGRESE EL NUEVO NOMBRE DE LA SALA: ";
-        cin.ignore();
-        cin.getline(nuevoNombre, 30);
-        while (nuevoNombre[0] == '\0')
-        {
-            cout << "EL NOMBRE NO PUEDE ESTAR VACIO. INGRESELO NUEVAMENTE: ";
-            cin.getline(nuevoNombre, 30);
-        }
-        obj.setNombreSala(nuevoNombre);
-        break;
-    }
-    case 2:
     {
         int nuevoTipo = seleccionarTipoSala();
         if (nuevoTipo == -1)
@@ -679,7 +662,7 @@ void modificarSala()
         break;
     }
 
-    case 3:
+    case 2:
     {
         int nuevaCapacidad;
 

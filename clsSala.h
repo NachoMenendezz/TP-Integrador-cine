@@ -4,7 +4,6 @@
 class Sala {
 private:
     int numSala;
-    char nombreSala[30];
     int tipoSala;
     int capacidadTotal;
     bool estado;
@@ -15,14 +14,12 @@ public:
 
     // Setters
     void setNumSala(int);
-    void setNombreSala(const char *);
     void setTipoSala(int);
     void setCapacidadTotal(int);
     void setEstado(bool);
 
     // Getters
     int getNumSala();
-    const char *getNombreSala();
     int getTipoSala();
     int getCapacidadTotal();
     bool getEstado();

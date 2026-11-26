@@ -106,6 +106,7 @@ void Pelicula::Cargar() {
         cin>>clasificacionPelicula;
     }
     // CARGAR FECHA DE ESTRENO.
+    cout<<"INGRESE FECHA DE ESTRENO: "<<endl;
     fechaEstreno.Cargar();
     // VALIDAR QUE LA FECHA INGRESADA SEA CORRECTA.
     while (!fechaEstreno.esValida()) {
