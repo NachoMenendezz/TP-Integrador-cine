@@ -1,0 +1,41 @@
+#include <iostream>#include <cstring>#include "ArchivoFuncion.h"using namespace std;ArchivoFuncion::ArchivoFuncion(const char *n) {    strcpy(nombreArchivo, n);}Funcion ArchivoFuncion::leerRegistro(int pos) {    FILE *p = fopen(nombreArchivo, "rb");    Funcion obj;    if (p == nullptr) {        obj.setIdFuncion(-1);        return obj;    }    fseek(p, pos * sizeof obj, 0);    fread(&obj, sizeof obj, 1, p);    fclose(p);    return obj;}int ArchivoFuncion::contarRegistros() {    FILE *p = fopen(nombreArchivo, "rb");    if (p == nullptr) {        return 0;    }    fseek(p, 0, 2);    int bytes = ftell(p);    fclose(p);    return bytes / sizeof(Funcion);}bool ArchivoFuncion::grabarRegistro(Funcion obj) {    FILE *p = fopen(nombreArchivo, "ab");    if (p == nullptr) {        return false;    }    bool escribio = fwrite(&obj, sizeof obj, 1, p);    fclose(p);    return escribio;}bool ArchivoFuncion::modificarRegistro(Funcion obj, int pos) {    FILE *p = fopen(nombreArchivo, "rb+");    if (p == nullptr) {        return false;    }    fseek(p, pos * sizeof obj, 0);    bool modifico = fwrite(&obj, sizeof obj, 1, p);    fclose(p);    return modifico;}int ArchivoFuncion::buscarRegistro(int id) {    int cantReg = contarRegistros();    for (int i = 0; i < cantReg; i++) {        Funcion obj = leerRegistro(i);        if (obj.getIdFuncion() == id) return i;    }    return -1;}void ArchivoFuncion::listarRegistros() {    int cantReg = contarRegistros();    for (int i = 0; i < cantReg; i++) {        Funcion obj = leerRegistro(i);        if (obj.getEstado()) {            obj.Mostrar();            cout << "************************" << endl;        }    }}
+
+// Devuelve el mayor ID de función registrado más uno.
+// Incluye las funciones dadas de baja para evitar reutilizar sus IDs.
+int ArchivoFuncion::generarId() {
+    int maxId = 0;
+    int cantidad = contarRegistros();
+
+    for (int i = 0; i < cantidad; i++) {
+        Funcion obj = leerRegistro(i);
+
+        if (obj.getIdFuncion() > maxId) {
+            maxId = obj.getIdFuncion();
+        }
+    }
+
+    return maxId + 1;
+}
+
+// Busca otra función activa en la misma sala, fecha y hora.
+// Si se indica un ID, saltea ese registro durante la búsqueda.
+bool ArchivoFuncion::existeTurnoOcupado(int numSala, Fecha fecha, int hora, int idExcluir) {
+    int cantidad = contarRegistros();
+
+    for (int i = 0; i < cantidad; i++) {
+        Funcion obj = leerRegistro(i);
+
+        if (obj.getEstado() && obj.getIdFuncion() != idExcluir &&
+            obj.getNumSala() == numSala && obj.getHoraFuncion() == hora) {
+            Fecha fechaGuardada = obj.getFechaFuncion();
+
+            if (fechaGuardada.getDia() == fecha.getDia() &&
+                fechaGuardada.getMes() == fecha.getMes() &&
+                fechaGuardada.getAnio() == fecha.getAnio()) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
